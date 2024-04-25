@@ -9,13 +9,8 @@ const AuthLayout: FC<AuthLayoutprops> = (props) => {
   
   return (
     <div 
-      className="flex flex-col gap-y-4"
+      className="h-full flex items-center justify-center"
     >
-      <nav
-        className="p-1 w-full"
-      >
-        Nav
-      </nav>
       { children }
     </div>
   )

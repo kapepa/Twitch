@@ -1,4 +1,8 @@
 export enum ROUTERS {
+  Home = "/",
   Login = "/login",
-  Register = "/register"
+  Register = "/register",
+  SignUp = "/sign-up",
+  SignIn = "/sign-in",
+  
 }
