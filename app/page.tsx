@@ -1,5 +1,12 @@
+import { ROUTERS } from "@/emun/routers";
+import { UserButton } from "@clerk/nextjs";
+
 export default function Home() {
   return (
-    <p>Home</p>
+    <div>
+      <UserButton 
+        afterSignOutUrl={ROUTERS.Home}
+      />
+    </div>
   );
 }
