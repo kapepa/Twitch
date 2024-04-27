@@ -4,5 +4,4 @@ export enum ROUTERS {
   Register = "/register",
   SignUp = "/sign-up",
   SignIn = "/sign-in",
-  
 }

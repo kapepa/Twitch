@@ -4,6 +4,7 @@ import { ROUTERS } from "./emun/routers";
 const isPublicRoute = createRouteMatcher([
   ROUTERS.Login,
   ROUTERS.Register,
+  // "/api/webhooks(.*)"
 ])
  
 const isAuthUserRoute = createRouteMatcher([
