@@ -37,6 +37,8 @@ html, body, :root {
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
+
+    --nav-bg: #252731
   }
 
   .dark {
@@ -67,6 +69,8 @@ html, body, :root {
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+
+    --nav-bg: #252731
   }
 }
 
