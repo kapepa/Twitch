@@ -2,7 +2,9 @@
 
 import { cn } from "@/lib/utils";
 import { useSidebar } from "@/store/use-sidebar";
-import { FC, ReactNode } from "react"
+import { FC, ReactNode, useEffect, useMemo, useState } from "react"
+import { ToggleSkeleton } from "./toggle";
+import { RecommendedSkeleton } from "./recommended";
 
 interface WrapperProps {
   children: ReactNode,
@@ -10,7 +12,24 @@ interface WrapperProps {
 
 const Wrapper: FC<WrapperProps> = (props) => {
   const { children } = props;
+  const [ isClient, setIsClient ] = useState<boolean>(false);
   const { collapsed } = useSidebar((state) => state);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, [])
+
+  const currentContent = useMemo(() => {
+    return isClient 
+    ? children 
+    : (
+      <>
+        <ToggleSkeleton/>
+        <RecommendedSkeleton/>
+      </>
+    );
+  }, [isClient])
+
 
   return (
     <aside
@@ -19,7 +38,7 @@ const Wrapper: FC<WrapperProps> = (props) => {
         collapsed && "w-[70px]",
       )}
     >
-      { children }
+      { currentContent }
     </aside>
   )
 }

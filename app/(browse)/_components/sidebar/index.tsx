@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Wrapper } from "./wrapper";
-import { Toggle } from "./toggle";
+import { Toggle, ToggleSkeleton } from "./toggle";
 import { Recommended, RecommendedSkeleton } from "./recommended";
 import { getRecommended } from "@/service/recommended-service";
 
@@ -30,6 +30,7 @@ const SidebarSkeleton: FC = async () => {
       <div
         className="space-y-4 pt-4 lg:pt-0"
       >
+        <ToggleSkeleton/>
         <RecommendedSkeleton/>
       </div>
     </aside>
