@@ -1,7 +1,8 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, Suspense } from "react";
 import { Navbar } from "./_components/navbar";
-import Sidebar from "./_components/sidebar";
+
 import { Container } from "./_components/container";
+import { Sidebar, SidebarSkeleton } from "./_components/sidebar";
 
 interface BrowseLayoutProps {
   children: ReactNode,
@@ -16,7 +17,11 @@ const BrowseLayout: FC<BrowseLayoutProps> = (props) => {
       <div
         className="flex h-full pt-20"
       >
-        <Sidebar/>
+        <Suspense
+          fallback={<SidebarSkeleton/>}
+        >
+          <Sidebar/>
+        </Suspense>
         <Container>
           { children }
         </Container>

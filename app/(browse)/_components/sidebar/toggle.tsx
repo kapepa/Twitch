@@ -44,7 +44,7 @@ const Toggle: FC = () => {
             <p
               className="font-semibold text-primary"
             >
-              aaaaaaaa
+              For you
             </p>
             <Hint
               label={ label }
