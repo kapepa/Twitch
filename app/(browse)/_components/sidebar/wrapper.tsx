@@ -5,6 +5,7 @@ import { useSidebar } from "@/store/use-sidebar";
 import { FC, ReactNode, useEffect, useMemo, useState } from "react"
 import { ToggleSkeleton } from "./toggle";
 import { RecommendedSkeleton } from "./recommended";
+import { FollowingSkeleton } from "./following";
 
 interface WrapperProps {
   children: ReactNode,
@@ -25,10 +26,11 @@ const Wrapper: FC<WrapperProps> = (props) => {
     : (
       <>
         <ToggleSkeleton/>
+        <FollowingSkeleton/>
         <RecommendedSkeleton/>
       </>
     );
-  }, [isClient])
+  }, [isClient, children])
 
 
   return (

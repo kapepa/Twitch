@@ -1,5 +1,6 @@
 import prisma from "@/lib/db"
 import { getSelf } from "./auth-service";
+import { revalidatePath } from "next/cache";
 
 const getRecommended = async () => {
   let userId: string | null = null;
@@ -16,7 +17,20 @@ const getRecommended = async () => {
   if (!!userId) {
     users = await prisma.user.findMany({
       where: {
-        NOT: { id: userId }
+        AND: [
+          {
+            NOT: { id: userId },
+          },
+          {
+            NOT: {
+              following: {
+                some: {
+                  followerId: userId,
+                }
+              }
+            }
+          }
+        ]
       },
       orderBy: {
         createdAt: "desc"
@@ -29,8 +43,6 @@ const getRecommended = async () => {
       }
     });
   }
-
-
 
   return users;
 }
