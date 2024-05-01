@@ -95,12 +95,19 @@ const getFollowedUsers = async () => {
     const followedUsers = await prisma.follow.findMany({
       where: {
         followerId: self.id,
+        following: {
+          blocker: {
+            none: {
+              blockedId: self.id
+            }
+          }
+        }
       },
       include: {
         following: true,
       }
     })
-
+    
     return followedUsers;
   } catch {
     return []

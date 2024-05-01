@@ -7,7 +7,7 @@ const getSelf = async (): Promise<User> => {
   if ( !current ) throw new Error("Unauthorized");
 
   const user = await prisma.user.findUnique({ where: { externalUserId: current.id } });
-  if (!user) throw new Error("User not found");
+  if (!user) throw new Error("User not found")
 
   return user
 }
