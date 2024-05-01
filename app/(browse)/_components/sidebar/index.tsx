@@ -3,9 +3,12 @@ import { Wrapper } from "./wrapper";
 import { Toggle, ToggleSkeleton } from "./toggle";
 import { Recommended, RecommendedSkeleton } from "./recommended";
 import { getRecommended } from "@/service/recommended-service";
+import { getFollowedUsers } from "@/service/follow-service";
+import { Following, FollowingSkeleton } from "./following";
 
 const Sidebar: FC = async () => {
   const recommended = await getRecommended();
+  const follows = await getFollowedUsers();
 
   return (
     <Wrapper>
@@ -13,6 +16,9 @@ const Sidebar: FC = async () => {
       <div
         className="space-y-4 pt-4 lg:pt-0"
       >
+        <Following
+          follows={follows}
+        />
         <Recommended
           users={recommended}
         />
@@ -31,6 +37,7 @@ const SidebarSkeleton: FC = async () => {
         className="space-y-4 pt-4 lg:pt-0"
       >
         <ToggleSkeleton/>
+        <FollowingSkeleton/>
         <RecommendedSkeleton/>
       </div>
     </aside>
