@@ -1,8 +1,8 @@
 import { FC, ReactNode, Suspense } from "react";
 import { Navbar } from "./_components/navbar";
 
-import { Container } from "./_components/container";
 import { Sidebar, SidebarSkeleton } from "./_components/sidebar";
+import { Container } from "./_components/container";
 
 interface BrowseLayoutProps {
   children: ReactNode,

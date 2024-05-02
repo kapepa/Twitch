@@ -37,7 +37,7 @@ const Actions: FC = async () => {
               asChild
             >
               <Link
-                href={`/u/${user.username}`}
+                href={`${ROUTERS.User}/${user.username}`}
               >
                 <Clapperboard
                   className="h-5 w-5 lg:mr-2"
