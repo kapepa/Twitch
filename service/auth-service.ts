@@ -13,19 +13,23 @@ const getSelf = async (): Promise<User> => {
 }
 
 const getSelfByUsername = async (username: string) => {
-  const current = await currentUser();
-  if (!current) throw new Error("Unauthorized");
-
-  const user = await prisma.user.findUnique({
-    where: {
-      username
-    }
-  });
-
-  if (!user) throw new Error("User not found");
-  if (user.username !== username) throw new Error("Unauthorized");
-
-  return user;
+  try {
+    const current = await currentUser();
+    if (!current) throw new Error("Unauthorized");
+  
+    const user = await prisma.user.findUnique({
+      where: {
+        username
+      }
+    });
+  
+    if (!user) throw new Error("User not found");
+    if (user.username !== username) throw new Error("Unauthorized");
+  
+    return user;
+  } catch {
+    return null;
+  }
 }
 
 export { getSelf, getSelfByUsername }
