@@ -6,5 +6,6 @@ export enum ROUTERS {
   SignIn = "/sign-in",
   Search = "/search",
   User = "/u",
-  Chat = "/chat"
+  Chat = "/chat",
+  Keys = "/keys",
 }
