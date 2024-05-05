@@ -8,7 +8,11 @@ import { AlertTriangle } from "lucide-react";
 import { FC } from "react";
 
 const ConnectModal: FC = () => {
-  return (
+  const onGenerate = () => {
+
+  }
+
+   return (
     <Dialog>
       <DialogTrigger
         asChild
@@ -62,7 +66,7 @@ const ConnectModal: FC = () => {
             </Button>
           </DialogClose>
           <Button
-            onClick={() => {}}
+            onClick={onGenerate}
             variant="primary"
           >
             Generate
