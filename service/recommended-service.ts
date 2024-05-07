@@ -41,12 +41,18 @@ const getRecommended = async () => {
           }
         ]
       },
+      include: {
+        stream: true,
+      },
       orderBy: {
         createdAt: "desc"
       }
     });
   } else {
     users = await prisma.user.findMany({
+      include: {
+        stream: true,
+      },
       orderBy: {
         createdAt: "desc"
       }
