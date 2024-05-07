@@ -6,7 +6,7 @@ import { FC } from "react";
 import { UserItem, UserItemSkeleton } from "./user-item";
 
 interface RecommendedProps {
-  users: (User & { stream: Stream | null })[];
+  users: (User & ({ stream: { isLive: boolean } | null }))[];
 }
 
 const Recommended: FC<RecommendedProps> = (props) => {
