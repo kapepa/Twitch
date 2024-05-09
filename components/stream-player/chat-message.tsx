@@ -34,7 +34,7 @@ const ChatMessage: FC<ChatMessageProps> = (props) => {
             style={{ color: color }}
           >
             {message.from?.name}
-          </span>
+          </span>:
         </p>
         <p
           className="text-sm break-all"
