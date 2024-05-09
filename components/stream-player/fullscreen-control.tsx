@@ -26,6 +26,7 @@ const FullscreenControl: FC<FullscreenControlProps> = (props) => {
           variant="ghost"
           onClick={onToggle}
           className="text-white p-1.5 hover:bg-white/10 rounded-lg"
+          asChild
         >
           <Icon 
             className="h-5 w-5"
