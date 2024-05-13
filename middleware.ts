@@ -5,6 +5,7 @@ const isPublicRoute = createRouteMatcher([
   ROUTERS.Login,
   ROUTERS.Register,
   ROUTERS.Home,
+  ROUTERS.User,
   // "/api/webhooks(.*)"
   "/api/uploadthing(.*)"
 ])

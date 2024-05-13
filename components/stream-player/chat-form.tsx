@@ -61,7 +61,7 @@ const ChatForm: FC<ChatFormProps> = (props) => {
           onChange={(e) => onChange(e.target.value)}
           className={cn(
             "border-white/10",
-            isFollowersOnly && "rounded-t-none border-t-0"
+            (isFollowersOnly || isDelayed) && "rounded-t-none border-t-0"
           )}
         />
       </div>
