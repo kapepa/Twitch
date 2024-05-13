@@ -11,9 +11,12 @@ import { Chat, ChatSkeleton } from "./chat";
 import { ChatToggle } from "./chat-toggle";
 import { Header, HeaderSkeleton } from "./header";
 import { InfoCard } from "./info-card";
+import { AboutCard } from "./about-card";
+
+type PlayerType = ( User & { _count: { folower: number } } )
 
 interface StreamPlayerProps {
-  player: User,
+  player: PlayerType,
   stream: Stream,
   isFollowing: boolean,
 }
@@ -68,6 +71,13 @@ const StreamPlayer: FC<StreamPlayerProps> = (props) => {
             hostIdentity={player.id || ""}
             thumbnailUrl={stream.thumbnailUrl}
             viewerIdentity={identity}
+          />
+          <AboutCard
+            hostName={player.username || ""}
+            hostIdentity={player.id || ""}
+            viewerIdentity={identity}
+            bio={player.bio}
+            followByCount={Number(player._count) || 0}
           />
         </div>
         <div
