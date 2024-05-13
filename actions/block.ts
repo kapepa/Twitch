@@ -1,16 +1,37 @@
 "use server"
 
+import { ROUTERS } from "@/emun/routers";
+import { getSelf } from "@/service/auth-service";
 import { blockUser, unblockUser } from "@/service/block-service"
+import { RoomServiceClient } from "livekit-server-sdk";
 import { revalidatePath } from "next/cache";
 
+const roomService = new RoomServiceClient(
+  String(process.env.LIVEKIT_API_URL), 
+  process.env.LIVEKIT_API_KEY, 
+  process.env.LIVEKIT_API_SECRET
+);
+
 const onBlock = async (id: string) => {
-  const block = await blockUser(id);
+  let blockedUser;
 
-  revalidatePath("/");
+  const self = await getSelf();
 
-  if (!!block) revalidatePath(`/${block.blocked.username}`);
+  try {
+    blockedUser = await blockUser(id);
+  } catch {
 
-  return block;
+  }
+
+  try {
+    await roomService.removeParticipant(self.id, id);
+  } catch {
+
+  }
+
+  revalidatePath(`${ROUTERS.User}/${self.username}${ROUTERS.Community}`)
+
+  return blockedUser;
 }
 
 const onUnblock = async (id: string) => {

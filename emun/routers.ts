@@ -8,4 +8,5 @@ export enum ROUTERS {
   User = "/u",
   Chat = "/chat",
   Keys = "/keys",
+  Community = "/community",
 }
