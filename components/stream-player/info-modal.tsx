@@ -146,6 +146,7 @@ const InfoModal: FC<InfoModalProps> = (props) => {
                     }}
                     onClientUploadComplete={(res) => {
                       setThumbnaiUrl(res?.[0]?.url);
+                      console.log(res)
                       router.refresh();
                       closeRef.current?.click();
                     }}
