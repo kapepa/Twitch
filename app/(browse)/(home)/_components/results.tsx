@@ -5,7 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const Results: FC = async () => {
   const streams = await getStreams()
-
+  
   return (
     <div>
       <h2

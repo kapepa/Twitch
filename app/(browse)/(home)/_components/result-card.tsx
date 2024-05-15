@@ -1,4 +1,3 @@
-import { LiveBadge } from "@/components/live-badge";
 import { Thumbnail, ThumbnailSkeleton } from "@/components/thumbnail";
 import { Skeleton } from "@/components/ui/skeleton";
 import { UserAvatar, UserAvatarSkeleton } from "@/components/user-avatar";
@@ -30,15 +29,6 @@ const ResultCard: FC<ResultCardProps> = (props) => {
           fallback={stream.user.imageUrl}
           username={stream.user.username}
         />
-        {
-          stream.isLive && (
-            <div
-              className="absolute top-2 left-2 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform"
-            >
-              <LiveBadge/>
-            </div>
-          )
-        }
         <div
           className="flex gap-x-3"
         >
