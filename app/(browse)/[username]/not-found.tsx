@@ -14,7 +14,7 @@ const UsernameNotFound: FC = () => {
         404
       </h1>
       <p>
-        we coudn't find the user, you were looking for
+        we coudn&apost find the user, you were looking for
       </p>
       <Button
         variant="secondary"

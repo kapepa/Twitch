@@ -55,7 +55,7 @@ const Actions: FC<ActionsProps> = (props) => {
       startTransition(async () => {
         try {
           const response = await onBlock(userId)
-          toast.success(`Blocked the user ${response.blocked.username}`)
+          toast.success(`Blocked the user ${response?.blocked.username}`)
         } catch {
           toast.error("Something went wrong")
         }

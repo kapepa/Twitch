@@ -39,7 +39,7 @@ const Chat: FC<ChatProps> = (props) => {
 
   const reversMessages = useMemo(() => {
     return chatMessages.sort((a, b) => b.timestamp - a.timestamp);
-  }, [chatMessages.length]);
+  }, [chatMessages, chatMessages.length]);
 
   const onChange = (value: string) => {
     setValue(value)

@@ -41,7 +41,7 @@ const Logo: FC<LogoProps> = (props) => {
         <p
           className="text-sm text-muted-foreground"
         >
-          Let's play
+          Let&aposts play
         </p>
       </div>
     </div>
