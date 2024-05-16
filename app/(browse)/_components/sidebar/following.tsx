@@ -2,11 +2,11 @@
 
 import { useSidebar } from "@/store/use-sidebar";
 import { Follow, Stream, User } from "@prisma/client";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { UserItem, UserItemSkeleton } from "./user-item";
 
 interface FollowingProps {
-  follows: (Follow & { following: (User & { stream: Stream | null }) })[],
+  follows: (Follow & { following: (Exclude<User, "stream"> & { stream: Pick<Stream, "isLive"> | null }) | null })[],
 }
 
 const Following: FC<FollowingProps> = (props) => {
@@ -36,9 +36,9 @@ const Following: FC<FollowingProps> = (props) => {
         {
           follows.map(({ following }, index) => (
             <UserItem
-              key={`${following.id}-${index}`}
-              user={following}
-              isLive={following.stream?.isLive}
+              key={`${following!.id}-${index}`}
+              user={following!}
+              isLive={following!.stream?.isLive}
             />
           ))
         }
