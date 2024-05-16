@@ -45,10 +45,10 @@ const Chat: FC<ChatProps> = (props) => {
     setValue(value)
   }
 
-  const onSubmit = () => {
+  const onSubmit = async() => {
     if (!send) return;
 
-    send(value);
+    await send(value);
     setValue("")
   };
 

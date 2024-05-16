@@ -1,7 +1,6 @@
 "use client"
 
 import { useViewerToken } from "@/hooks/use-viewer-token";
-import { Stream } from "@prisma/client";
 import { FC } from "react"
 import { LiveKitRoom } from '@livekit/components-react';
 import { Video, VideoSkeleton } from "./video";
@@ -12,11 +11,11 @@ import { ChatToggle } from "./chat-toggle";
 import { Header, HeaderSkeleton } from "./header";
 import { InfoCard } from "./info-card";
 import { AboutCard } from "./about-card";
-import { UserByUsernameType } from "@/types/UserByUsernameType";
+import { UserByUsernameStreamType, UserByUsernameType } from "@/types/UserByUsernameType";
 
 interface StreamPlayerProps {
   player: UserByUsernameType,
-  stream: UserByUsernameType['stream'],
+  stream: UserByUsernameStreamType,
   isFollowing: boolean,
 }
 

@@ -2,7 +2,6 @@ import { isFollowingUser } from "@/service/follow-service";
 import { getUserByUsername } from "@/service/user-service";
 import { NextPage } from "next";
 import { notFound } from "next/navigation";
-import { Actions } from "./_components/actions";
 import { isBlockedByUser } from "@/service/block-service";
 import { StreamPlayer } from "@/components/stream-player";
 

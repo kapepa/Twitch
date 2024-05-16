@@ -39,8 +39,13 @@ const getSearch = async (term?: string): Promise<GetSearchType[] | undefined> =>
         }
       ]
     },
-    include: {
-      user: true
+    select: {
+      id: true,
+      name: true,
+      user: true,
+      isLive: true,
+      updatedAt: true,
+      thumbnailUrl: true,
     },
     orderBy: [
       {
@@ -68,8 +73,13 @@ const getSearch = async (term?: string): Promise<GetSearchType[] | undefined> =>
         }
       ]
     },
-    include: {
-      user: true
+    select: {
+      id: true,
+      name: true,
+      user: true,
+      isLive: true,
+      updatedAt: true,
+      thumbnailUrl: true,
     },
     orderBy: [
       {

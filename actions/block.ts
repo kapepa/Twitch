@@ -39,7 +39,10 @@ const onUnblock = async (id: string) => {
 
   revalidatePath("/");
 
-  if (!!block) revalidatePath(`/${block.blocked.username}`);
+  if (!!block) { 
+    revalidatePath(`${ROUTERS.User}/${block.blocked.username}${ROUTERS.Community}`);
+    revalidatePath(`/${block.blocked.username}`);
+  }
 
   return block;
 }
