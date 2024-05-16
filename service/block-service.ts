@@ -1,6 +1,7 @@
 import prisma from "@/lib/db";
 import { getSelf } from "./auth-service";
 import { Block } from "@prisma/client";
+import { GetBlockedUserType } from "@/types/GetBlockedUserType";
 
 const isBlockedByUser = async (id: string): Promise<boolean> => {
   try{
@@ -91,4 +92,19 @@ const unblockUser = async (id: string) => {
   return unblock;
 }
 
-export { isBlockedByUser, blockUser, unblockUser };
+const getBlockedUser = async (): Promise<GetBlockedUserType[] | null> => {
+  const self = await getSelf();
+
+  const blockedUsers = await prisma.block.findMany({
+    where: {
+      blockerId: self.id,
+    },
+    include: {
+      blocked: true,
+    }
+  })
+
+  return blockedUsers;
+}
+
+export { isBlockedByUser, blockUser, unblockUser, getBlockedUser };

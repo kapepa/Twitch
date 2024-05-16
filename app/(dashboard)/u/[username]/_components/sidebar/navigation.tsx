@@ -20,17 +20,17 @@ const Navigation: FC = () => {
     },
     {
       label: "Keys",
-      href: `${ROUTERS.User}/${user?.username}/keys`,
+      href: `${ROUTERS.User}/${user?.username}${ROUTERS.Keys}`,
       ico: KeyRound,
     },
     {
       label: "Chat",
-      href: `${ROUTERS.User}/${user?.username}/chat`,
+      href: `${ROUTERS.User}/${user?.username}${ROUTERS.Chat}`,
       ico: MessageSquare,
     },
     {
       label: "Community",
-      href: `${ROUTERS.User}/${user?.username}/community`,
+      href: `${ROUTERS.User}/${user?.username}${ROUTERS.Community}`,
       ico: User,
     },
   ]

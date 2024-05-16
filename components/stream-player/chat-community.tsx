@@ -26,12 +26,11 @@ const ChatCommunity: FC<ChatCommunityProps> = (props) => {
   const filterParticipants = useMemo(() => {
     const deduped = participants.reduce((acc, participant) => {
       const hostAsViewer = `host-${participant.identity}`;
-      if (acc.some(p => p.identity === hostAsViewer)){
-        acc.push(participant)
-      }
+      if (!acc.some(p => p.identity === hostAsViewer || participant.name === hostName)) acc.push(participant);
       return acc;
     }, [] as (RemoteParticipant | LocalParticipant)[])
-
+    
+    console.log(deduped)
     return deduped.filter((participant) => {
       return participant.name?.toLowerCase().includes(debouncedValue.toLocaleLowerCase());
     });
@@ -63,7 +62,7 @@ const ChatCommunity: FC<ChatCommunityProps> = (props) => {
       <ScrollArea
         className="gap-y-2 mt-4"
       >
-        <p
+        <div
           className="text-center text-sm text-muted-foreground hidden last:block p-2"
         >
         {
@@ -77,7 +76,7 @@ const ChatCommunity: FC<ChatCommunityProps> = (props) => {
             />
           ))
         }
-        </p>
+        </div>
       </ScrollArea>
     </div>
   )

@@ -51,6 +51,7 @@ const CommunityItem: FC<CommunityItemProps> = (props) => {
         isHost && !isSelf && (
           <Hint
             label="Block"
+            asChild
           >
             <Button
               variant="ghost"
