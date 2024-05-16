@@ -26,11 +26,10 @@ const ChatCommunity: FC<ChatCommunityProps> = (props) => {
   const filterParticipants = useMemo(() => {
     const deduped = participants.reduce((acc, participant) => {
       const hostAsViewer = `host-${participant.identity}`;
-      if (!acc.some(p => p.identity === hostAsViewer || participant.name === hostName)) acc.push(participant);
+      if (!acc.some(p => p.identity === hostAsViewer || p.name === participant.name)) acc.push(participant);
       return acc;
     }, [] as (RemoteParticipant | LocalParticipant)[])
     
-    console.log(deduped)
     return deduped.filter((participant) => {
       return participant.name?.toLowerCase().includes(debouncedValue.toLocaleLowerCase());
     });
