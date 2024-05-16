@@ -11,7 +11,7 @@ const Results: FC = async () => {
       <h2
         className="text-lg font-semibold mb-4"
       >
-         Streams we think you'll like
+         Streams we think you&aposll like
       </h2>
       {
         (!(!!streams && streams.length > 0)) && (

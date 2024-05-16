@@ -17,7 +17,7 @@ const Container: FC<ContainerProps> = (props) => {
   useEffect(() => {
     if (matches) onCallapse();
     else onExpand();
-  },  [matches])
+  },  [matches, onCallapse, onExpand])
 
   return (
     <div

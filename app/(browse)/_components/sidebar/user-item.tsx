@@ -10,6 +10,7 @@ import { User } from "@prisma/client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
+import { Stream } from "stream";
 
 interface UserItemProps {
   user: User,

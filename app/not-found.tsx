@@ -16,7 +16,7 @@ const RootNotFound: FC = () => {
         404
       </h1>
       <p>
-        we coudn't find the page, you were looking for
+        we coudn&apost find the page, you were looking for
       </p>
       <Button
         variant="secondary"
